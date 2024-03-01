@@ -184,7 +184,7 @@ public class TasksView: View<Task>
                         Console.ReadLine();
                     }
 
-                    Init(SelectedOption);
+                    Init();
                     break;
                 case ConsoleKey.A:
                     Console.ResetColor();
@@ -198,7 +198,7 @@ public class TasksView: View<Task>
                         Warning($"There's been an error.\n{e.Message}\n Press enter to try again!");
                         Console.ReadLine();
                     }
-                    Init(SelectedOption);
+                    Init();
                     break;
                 case ConsoleKey.R:
                     Console.ResetColor();
@@ -212,7 +212,7 @@ public class TasksView: View<Task>
                         Warning($"There's been an error .\n{e.Message}\n Press enter to try again!");
                         Console.ReadLine();
                     }
-                    Init(SelectedOption);
+                    Init();
                     break;
                 case ConsoleKey.U when SelectedOption != 0:
                     MoveUp();

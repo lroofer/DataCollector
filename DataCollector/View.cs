@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace  DataCollector;
 
 using static Markup;
@@ -100,10 +102,14 @@ public abstract class View<T>
         Console.SetCursorPosition(0, _optionLocations[--SelectedOption]);
         Console.ForegroundColor = BackgroundColor;
         Console.BackgroundColor = ForegroundColor;
-        Console.WriteLine($"<*> {Options[SelectedOption]}");
+        var v1 = new StringBuilder($"<*> {Options[SelectedOption]}");
+        while (v1.Length < Console.BufferWidth) v1.Append(' ');
+        Console.WriteLine(v1.ToString());
         Console.BackgroundColor = BackgroundColor;
         Console.ForegroundColor = ForegroundColor;
-        Console.WriteLine($"<-> {Options[SelectedOption + 1]}");
+        var v2 = new StringBuilder($"<-> {Options[SelectedOption + 1]}");
+        while (v2.Length < Console.BufferWidth) v2.Append(' ');
+        Console.WriteLine(v2.ToString());
     }
 
     /// <summary>
@@ -133,9 +139,13 @@ public abstract class View<T>
         Console.SetCursorPosition(0, _optionLocations[SelectedOption]);
         Console.ForegroundColor = ForegroundColor;
         Console.BackgroundColor = BackgroundColor;
-        Console.WriteLine($"<-> {Options[SelectedOption++]}");
+        var v1 = new StringBuilder($"<-> {Options[SelectedOption++]}");
+        while (v1.Length < Console.BufferWidth) v1.Append(' ');
+        Console.WriteLine(v1.ToString());
         Console.BackgroundColor = ForegroundColor;
         Console.ForegroundColor = BackgroundColor;
-        Console.WriteLine($"<*> {Options[SelectedOption]}");
+        var v2 = new StringBuilder($"<*> {Options[SelectedOption]}");
+        while (v2.Length < Console.BufferWidth) v2.Append(' ');
+        Console.WriteLine(v2.ToString());
     }
 }
